@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FoodApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav class="nav navbar navbar-default">
+<div class="container">
+	<div class="navbar-brand">
+		<%= link_to "Meal Box", root_path %>
+	</div>
+	<ul class="nav navbar-nav navbar-right">
+		<li><%= link_to "New Item", new_item_path %></li>
+		<li><%=	link_to "New Meal", new_meal_path %></li>
+		<li><%= link_to "New Transaction", new_transaction_path %></li>
+	</ul>
+</div>
+</nav>
+<% flash.each do |name, msg| %>
+<%= content_tag :div, msg, class: "alert" %>
+<% end %>
+<%= yield %>
+
+</body>
+</html>

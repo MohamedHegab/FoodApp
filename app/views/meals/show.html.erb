@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<h1>Meal</h1>
+<dl>
+  <dt>Name:</dt>
+  <dd><%= @meal.name %></dd>
+  <dt>Price:</dt>
+  <dd><%= @meal.price %></dd>
+  
+
+
+</p>
+<h2>Items</h2>
+<% @meal.items.each do |item| %>
+<p>
+	<dt>Item Name:</dt>
+  <dd><%= item.name %></dd>
+  <dt>Item Cost:</dt>
+  <dd><%= item.cost %></dd>
+  <dt>Quantity:</dt>
+  <dd><%= item.ingredients.find_by(meal: @meal).quantity %> <%= item.measurment_unit %></dd>
+</p>
+<% end %>
+</dl>
+
+<%= link_to 'Edit', edit_meal_path(@meal) %> |
+<%= link_to 'Back', meals_path %>

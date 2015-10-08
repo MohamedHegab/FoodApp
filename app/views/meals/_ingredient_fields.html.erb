@@ -1,0 +1,10 @@
+<div class="nested-fields">
+<div class="field">
+      <%= f.label :item_id %><br>
+      <%= f.select :item_id, Item.all.collect { |p| [ p.name, p.id ] }, include_blank: true %><br>
+      <%= f.label :quantity %><br>
+      <%= f.number_field :quantity, :step => 'any', class: "hop"%><br>
+      <%= f.hidden_field :_destroy %>
+</div>
+  <%= link_to_remove_association "remove item", f, class: "btn btn-default" %>
+</div>

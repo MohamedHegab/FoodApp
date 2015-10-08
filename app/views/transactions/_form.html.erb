@@ -1,0 +1,43 @@
+<%= simple_form_for(@transaction) do |f| %>
+  <% if @transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+      <% @transaction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+
+  <div id="food_transactions">
+  <% if params[:action] == "edit" %>
+  <%= f.simple_fields_for :food_transactions, @food_transactions do |food_transaction| %>
+      <%= render 'food_transaction_fields', f: food_transaction %>
+       <%= link_to_add_association "add meal", f, :food_transactions %>
+       <% end %>
+
+  <% else %>
+  <%= f.simple_fields_for :food_transactions, @food_transactions.build do |food_transaction| %>
+        <%= render 'food_transaction_fields', f: food_transaction %>
+       <%= link_to_add_association "add meal", f, :food_transactions %>
+  <% end %> 
+  <% end %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
