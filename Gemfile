@@ -15,7 +15,9 @@ gem 'mysql2', '~> 0.3.18'
 gem 'dotenv-rails', :groups => [:development, :test]
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'mina'
+gem 'mina-sidekiq', :require => false
+gem 'mina-unicorn', :require => false
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'pg', '~> 0.18.3'

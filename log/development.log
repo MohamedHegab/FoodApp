@@ -11812,3 +11812,11 @@ Processing by MealsController#index as HTML
   [1m[35mMeal Load (0.3ms)[0m  SELECT `meals`.* FROM `meals`
   Rendered meals/index.html.erb within layouts/application (2.8ms)
 Completed 200 OK in 500ms (Views: 426.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-08 16:52:14 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by MealsController#index as HTML
+  [1m[35mMeal Load (0.2ms)[0m  SELECT `meals`.* FROM `meals`
+  Rendered meals/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 300ms (Views: 285.1ms | ActiveRecord: 0.6ms)
